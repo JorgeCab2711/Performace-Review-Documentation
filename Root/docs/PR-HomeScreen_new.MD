@@ -1,31 +1,31 @@
 # **Home Screen**
-## **Índice**
 
 
-- [Descripción](#descripción)
-- [Componentes y elementos visuales](#componentes-y-elementos-visuales)
-  - [Barra de título](#barra-de-título)
-  - [Botón de Iniciar](#botón-de-iniciar)
-  - [Botón Editar Objetivos](#botón-editar-objetivos)
-  - [Botón Editar Valores](#botón-editar-valores)
-  - [Botón Auto Evaluarme](#botón-auto-evaluarme)
-  - [Date Pickers Inicio y fin del periodo](#date-pickers-inicio-y-fin-del-periodo)
-  - [Mensaje y texto de bienvenida](#mensaje-y-texto-de-bienvenida)
+[[_TOC_]]
+
+
+___
+## **Descripción**
+En esta pantalla se muestra una vista general de la aplicación, proporciona varios botones los cuales condicionalmente navegan a otras pantallas. Desde esta pantalla se selecciona la fecha de inicio y final del Performance Review para el manejo de correcto de los periodos. A continuación hay una imagen para visualizar la pantalla. 
 
 
 <br>
 
-___
-## **Descripción**
-En esta pantalla se muestra una vista general de la aplicación, proporciona varios botones los cuales condicionalmente navegan a otras pantallas. Desde esta pantalla se selecciona la fecha de inicio y final del Performance Review para el manejo de correcto de los periodos. A continuación hay una imagen para visualizar la pantalla. ![Homescreen](/screenshots/HomeScreen/Home.png)
+![Homescreen](/screenshots/HomeScreen/Home.png)
+
+<br>
 
 ___
+
 ## **Componentes y elementos visuales**
 
-## **Barra de título:**
 <ul>
 
-* ![Title-HS](/screenshots/HomeScreen/title-hs.png)
+### **Barra de título**
+<ul>
+
+
+![Title-HS](/screenshots/HomeScreen/title-hs.png)
 
 </ul>
 
@@ -33,7 +33,7 @@ ___
 
 <ul>
 
-* ![Logo](/screenshots/HomeScreen/Logo.png)
+ ![Logo](/screenshots/HomeScreen/Logo.png)
 
 </ul>
 
@@ -52,7 +52,7 @@ ___
 
 <br>
 
-## **Botón de Iniciar**
+### **Botón de Iniciar**
 
 <ul>
 
@@ -63,7 +63,7 @@ ___
 
 <br>
 
-## **Button_Iniciar / Display mode:**
+### **Button_Iniciar / Display mode:**
 
 
 ```powerfx
@@ -79,7 +79,7 @@ Como se puede observar la propiedad de *`Display Mode`* cambia dependiendo si el
 
 <br>
 
-## **Botón Editar Objetivos**
+### **Botón Editar Objetivos**
 <ul>
 - Este botón solamente está habilitado cuando ya se inició un PR. A continuación un snippet con su propiedad `Display Mode`:
 
@@ -102,7 +102,7 @@ Si el usuario está registrado en la base de datos `PerformanceReview` el botón
 
 <br>
 
-## **Botón Editar Valores**
+### **Botón Editar Valores**
 <ul>
 
 - Este botón solamente está habilitado cuando ya se inició un PR. A continuación un snippet con su propiedad `Display Mode`:
@@ -165,7 +165,7 @@ Si el usuario está registrado en la base de datos `PerformanceReview` el botón
 
 <br>
 
-## **Botón Auto Evaluarme**
+### **Botón Auto Evaluarme**
 
 <ul>
 
@@ -187,7 +187,7 @@ Si el usuario está registrado en la base de datos `PerformanceReview` el botón
 
 </ul>
 
-## **Date Pickers Inicio y fin del periodo**
+### **Date Pickers Inicio y fin del periodo**
 
 
 <ul>
@@ -211,7 +211,7 @@ Ver: [Boton iniciar](#botón-de-iniciar)
 
 <br>
 
-## **Mensaje y texto de bienvenida**
+### **Mensaje y texto de bienvenida**
 <ul>
 
 ![welcome-message](/screenshots/HomeScreen/welcome-text.png)
@@ -244,7 +244,7 @@ Ver: [Boton iniciar](#botón-de-iniciar)
         ![backgroud-welcome](/screenshots/HomeScreen/backgroud-welcome.png)
         
         Como se puede ver, la propiedad texto de este componente también es una concatenación. A continuación se provee el código fuente:
-        ```
+        ```powerapps
         Concatenate(
             "Usted está por iniciar su evaluación de Valores Corporativos dentro del proceso de evaluación de desempeño. Su jefe será notificado y podrá ver sus respuestas.Verifique que su jefe es ",
         Office365Users.ManagerV2(User().Email).displayName,"."
@@ -257,5 +257,7 @@ Ver: [Boton iniciar](#botón-de-iniciar)
 
 
 
-## **Componentes invisibles**
+### **Componentes invisibles**
+
+</ul>
 
