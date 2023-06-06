@@ -1,5 +1,21 @@
 # **Home Screen**
+## **Índice**
 
+
+- [Descripción](#descripción)
+- [Componentes y elementos visuales](#componentes-y-elementos-visuales)
+  - [Barra de título](#barra-de-título)
+  - [Botón de Iniciar](#botón-de-iniciar)
+  - [Botón Editar Objetivos](#botón-editar-objetivos)
+  - [Botón Editar Valores](#botón-editar-valores)
+  - [Botón Auto Evaluarme](#botón-auto-evaluarme)
+  - [Date Pickers Inicio y fin del periodo](#date-pickers-inicio-y-fin-del-periodo)
+  - [Mensaje y texto de bienvenida](#mensaje-y-texto-de-bienvenida)
+
+
+<br>
+
+___
 ## **Descripción**
 En esta pantalla se muestra una vista general de la aplicación, proporciona varios botones los cuales condicionalmente navegan a otras pantallas. Desde esta pantalla se selecciona la fecha de inicio y final del Performance Review para el manejo de correcto de los periodos. A continuación hay una imagen para visualizar la pantalla. ![Homescreen](/screenshots/HomeScreen/Home.png)
 
@@ -234,11 +250,12 @@ Ver: [Boton iniciar](#botón-de-iniciar)
         Office365Users.ManagerV2(User().Email).displayName,"."
         )
         ```
-
-
+        
         </ul>
-    
-
-
 
 </ul>
+
+
+
+## **Componentes invisibles**
+
