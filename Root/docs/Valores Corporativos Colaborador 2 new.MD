@@ -1,19 +1,29 @@
-# Pantalla: Valores Corporativos Colaborador_new
-![main](/Root/screenshots/Valores%20Colaborador/Valores-corp-col-pant.png)
+# Pantalla: ValoresColaboradorFinnew
 
-<br>
 
 [[_TOC_]]
 
+<br>
 
+# Descripción
+Esta pantalla es muy similar a la pantalla Valores Corporativos Colaborador new, las mayores diferencias es que esta pantalla son:
+<ul>
+
+* Esta pantalla se utiliza para el final del periodo.
+
+* Utiliza el flujo [ValoresColaboradorFinnew](/Root/docs/FLujos/ValoresColaboradornew.md) en vez de [ValoresColaboradornew](/Root/docs/FLujos/ValoresColaboradornew.md).
+
+* No utiliza el flujo [AlmacenarDatosColaborador](/Root/docs/FLujos/AlmacenarDatosColaborador.md.)
+
+* Le pide al usuario su `PR_ID` , el cual fue mandado a su correo en la pantalla [ValoresColaboradornew](/Root/docs/Valores%20Corporativos%20Colaborador.md), al calificar sus valores.
+
+</ul>
 
 <br>
 
+# Componentes
 
-## Componentes
-<br>
-
-### Barra de título
+## Barra de título
 <br>
 <ul>
 
@@ -27,12 +37,9 @@ Se tiene exactamente la misma lógica que en la pantalla de inicio, hay dos dife
     Refresh(PerfReview_Valores);
     Refresh(PerfReview_Objectives);
     ```
-
 </ul>
 
-<br>
-
-### Botones-labels de valores
+## Botones-labels de valores
 <br>
 <ul>
 
@@ -44,8 +51,7 @@ Cada uno de estos componentes son simplemente botones desactivados como se descr
 
 <br>
 
-
-### Dropdowns y Text Boxes
+## Dropdowns y Text Boxes
 <br>
 <ul>
 
@@ -59,17 +65,17 @@ Cada uno de estos _dropdowns_ y _text inputs_ corresponden a un valor adyacente.
 
 |  Valor       | Nombre Drop Down | Nombre input text box |
 |:------------:|-------------:|-------------:|
-| Honestidad    |  Select_Honestidad   | Comment_Honestidad |
-|  Trabajo en Equipo   | Select_TEE   |Comment_TE |
-| Divertirse    | Select_Div  | Comment_Div |
-| Foco en el Cliente    | Select_FEE    |Comment_FEC |
-| Innovación    | Select_Inn    |Comment_Innova |
+| Honestidad    |  Select_Honestidad_Fin   | Comment_Honestidad_Fin |
+|  Trabajo en Equipo   | Select_TEE_Fin   |Comment_TE_Fin |
+| Divertirse    | Select_Div  | Select_Div_Fin |
+| Foco en el Cliente    | Select_FEE_Fin    |Comment_FEC_Fin |
+| Innovación    | Select_Inn_Fin    |Comment_Innova_Fin |
 
 
 </ul>
 
 
-### Botón entregar
+## Botón entregar
 
 <ul>
 
@@ -80,11 +86,11 @@ Cada uno de estos _dropdowns_ y _text inputs_ corresponden a un valor adyacente.
 El Display mode de este botón no se activa hasta que el usuario haya llenado los campos necesarios, aquí el código para la propiedad Display Mode:
 
     If(! (      
-            Select_Honestidad.Selected.Value = "" 
-            Or Select_TEE.Selected.Value = "" 
-            Or Select_Div.Selected.Value = ""
-            Or Select_FEE.Selected.Value = ""
-            Or Select_Inn.Selected.Value = ""
+            Select_Honestidad_Fin.Selected.Value = "" 
+            Or Select_TEE_Fin.Selected.Value = "" 
+            Or Select_Div_Fin.Selected.Value = ""
+            Or Select_FEE_Fin.Selected.Value = ""
+            Or Select_Inn_Fin.Selected.Value = ""
         ),
         DisplayMode.Edit,
         DisplayMode.Disabled 
@@ -99,29 +105,17 @@ Como se puede observar el botón no se habilitará hasta que todos los Drop Down
 
 **Propiedad: OnSelect**
 
-Este botón es fundamental para el funcionamiento correcto de la aplicación , pues se encarga de registrar al usuario , a la vez que ingresar los datos de la auto evaluación de los valores del usuario. Utilizando los flujos `AlmacenarDatosColaborador` y `ValoresColaboradornew`. 
+Este botón es fundamental para el funcionamiento correcto de la pantalla, a la vez que ingresar los datos de la auto evaluación de los valores del usuario. Utilizando el flujo `ValoresColaboradornew`.
 
 Ver:
 
-- [Flujo-Almacenar-Datos-Colaborador](/Root/docs/FLujos/AlmacenarDatosColaborador.md).
 
-- [Flujo-Valores-Colaborador-new](/Root/docs/FLujos/ValoresColaboradornew.md).
+- [Flujo-Valores-Colaborador-Fin-new](/Root/docs/FLujos/ValoresColaboradorFinnew.MD).
+
+<br>
 
 
-El siguiente código conforma la lógica del botón el la respectiva propiedad:
-
-```
-AlmacenarDatosColaborador.Run(
-    Text(PR_ID_NEW),
-    Text(CorreoCol), 
-    Text(period_start),
-    Text(period_end),
-    Text(Office365Users.ManagerV2(User().Email).displayName)
-);
-```
-Como podemos ver, se le pasan los parámetros al flujo `AlmacenarDatosColaborador`, para poder registrar el PR del usuario.
-
-La segunda parte del codigo es la más extensa, en esta parte se ejecuta varias veces el flujo `ValoresColaboradornew` una vez para cada valor , Aquí un ejemplo general del código:
+En esta parte se ejecuta varias veces el flujo `ValoresColaboradornew` una vez para cada valor , Aquí un ejemplo general del código:
 
 
 
@@ -155,6 +149,18 @@ ValoresColaboradornew.Run(
 );
 ```
 
+Notar que al valor se le da una ponderación dependiendo de la auto evaluación seleccionada en el Dropdown de calificación. Ver la siguiente tabla:
+
+|  Calificación       | Ponderación |
+|:------------:|-------------:|
+| No Cumple  |   0.44  |
+|  Cumple Parcialmente  | 0.98   |
+| Cumple    | 1.33  |
+|  Supera   |   1.78  |
+| Excede  |   2.22  |
+
+<br>
+
 Posteriormente se resetean varios de los componentes de la pantalla, cuando ya estan llenados, para que no haya ninguna redundacia. Se navega a la pantalla _Indicadores de Negocio Colaborador_new_ y se le notifica al usuario que sus valores fueron entregados con éxito.
 
 **Nota :** Aunque sería ideal, la funcionalidad de poder comprobar que el flujo se ejecutó correctamente antes de enviar el mensaje de éxito al usuario no está incorporada.
@@ -174,8 +180,6 @@ Reset(Comment_Innova);
 Notify("Valores entregados!",NotificationType.Success,2500);
 ```
 
+<br>
 
-</ul>
-
-
-**Nota :** Para ver el código completo ver de la propiedad onSelect: [OnSelect-Code](/Root/assets/OnselectEntregarVCC.fx).
+**Nota :** Para ver el código completo ver de la propiedad onSelect: [OnSelect-Code](/Root/assets/OnselectEntregarVCCFin.fx).

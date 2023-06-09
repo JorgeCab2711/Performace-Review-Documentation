@@ -1,31 +1,38 @@
-# **Home Screen**
+# Pantalla: Home Screen
 
 
 [[_TOC_]]
 
 
 ___
-## **Descripción**
+## Descripción
+<br>
 En esta pantalla se muestra una vista general de la aplicación, proporciona varios botones los cuales condicionalmente navegan a otras pantallas. Desde esta pantalla se selecciona la fecha de inicio y final del Performance Review para el manejo de correcto de los periodos. A continuación hay una imagen para visualizar la pantalla. 
 
 
 <br>
 
-![Homescreen](/screenshots/HomeScreen/Home.png)
+![Homescreen](/Root/screenshots/HomeScreen/Home.png)
 
 <br>
 
 ___
 
-## **Componentes y elementos visuales**
+## Componentes y elementos visuales
 
 <ul>
 
-### **Barra de título**
+<br>
+
+### Barra de título
+
+<br>
+
+
 <ul>
 
 
-![Title-HS](/screenshots/HomeScreen/title-hs.png)
+![Title-HS](/Root/screenshots/HomeScreen/title-hs.png)
 
 </ul>
 
@@ -33,7 +40,7 @@ ___
 
 <ul>
 
- ![Logo](/screenshots/HomeScreen/Logo.png)
+ ![Logo](/Root/screenshots/HomeScreen/Logo.png)
 
 </ul>
 
@@ -41,29 +48,29 @@ ___
 
 <ul>
 
-* ![pp](/screenshots/HomeScreen/profilepic.png)
+* ![pp](/Root/screenshots/HomeScreen/profilepic.png)
 
-* ![fn](/screenshots/HomeScreen/fullname.png)
+* ![fn](/Root/screenshots/HomeScreen/fullname.png)
 
-* ![job](/screenshots/HomeScreen/userjob.png)
+* ![job](/Root/screenshots/HomeScreen/userjob.png)
 </ul>
 
 * Del lado derecho de la barra del titulo se encuentrael nombre completo, el puesto y su imagen de perfil. Estos datos se obtienen de una variable llamada ***`User()`*** la cual está por defecto en power apps, en el caso de la foto de perfil y nombre completo.
 
 <br>
 
-### **Botón de Iniciar**
+### Botón de Iniciar
 
 <ul>
 
-*  ![init](/screenshots/HomeScreen/init%20button.png)
+*  ![init](/Root/screenshots/HomeScreen/init%20button.png)
 * Este boton solo está habilitado cuando un *PR* no ha sido iniciada en el periodo actual. Si la persona ya pulsó este botón anteriormente, y la fecha actual todavía no es mayor a la fecha límite, el botón estará deshabilitado. A continuación se muestra un snippet la lógica de esta funcionalidad en la propiedad `Display Mode`.
 
 * Para la propiedad *OnSelect*, como se puede ver en la imagen, al estar habilitado este botón, se setean las variables *`IsNew`* y *`PrUUID`* las cuales se utilizan para determinar que el *PR* es nuevo y darle un *ID* único respectivamente.
 
 <br>
 
-### **Button_Iniciar / Display mode:**
+### Button_Iniciar / Display mode:
 
 
 ```powerfx
@@ -74,12 +81,12 @@ If(
 )
 ```
 
-Como se puede observar la propiedad de *`Display Mode`* cambia dependiendo si el colaborador ya está registrado en la base de datos *`PerformanceReview`* lo cual sucede en la siguiente pantalla al calificar los valores. Ver pantalla: [Valores Corporativos Colaborador new](/docs/Valores%20Corporativos%20Colaborador.md).
+Como se puede observar la propiedad de *`Display Mode`* cambia dependiendo si el colaborador ya está registrado en la base de datos *`PerformanceReview`* lo cual sucede en la siguiente pantalla al calificar los valores. Ver pantalla: [Valores Corporativos Colaborador new](/Root/docs/Valores%20Corporativos%20Colaborador.md).
 </ul>
 
 <br>
 
-### **Botón Editar Objetivos**
+### Botón Editar Objetivos
 <ul>
 - Este botón solamente está habilitado cuando ya se inició un PR. A continuación un snippet con su propiedad `Display Mode`:
 
@@ -94,7 +101,7 @@ If(
 
 Si el usuario está registrado en la base de datos `PerformanceReview` el botón estará habilitado, de lo contrario no lo estará. 
 
-- ![edit-obj-btn](/screenshots/HomeScreen/boton-edit-objetivos.png)
+- ![edit-obj-btn](/Root/screenshots/HomeScreen/boton-edit-objetivos.png)
 - Al estar habilitado este botón se dirije a la pantalla ***"`Indicadores de Negocio Colaborador_new`"*** y se setea la variable *`Email`* que nos sirve en la pantallaque a la que se está redirigiendo. Todo esto en la propiedad *`OnSelect`*.
 - A diferencia de los próximos botones , la redirección de este botón no está condicionada, es decir, el botón no depende de una variable externa como la fecha actual para redirigirse a otra pantalla.
 
@@ -102,7 +109,7 @@ Si el usuario está registrado en la base de datos `PerformanceReview` el botón
 
 <br>
 
-### **Botón Editar Valores**
+### Botón Editar Valores
 <ul>
 
 - Este botón solamente está habilitado cuando ya se inició un PR. A continuación un snippet con su propiedad `Display Mode`:
@@ -157,15 +164,15 @@ Si el usuario está registrado en la base de datos `PerformanceReview` el botón
 
     - Los componentes `Periodo_Fin_FromSQL` , `Periodo_Inicio_FromSQL` , ` period_end` y `period_start`, se pueden encotrar en las zonas vacías de la pantalla , estas tienen la propiedad *Visible* deshabilitada. A continuación dos screenshots para mostrar su localización:
 
-        ![location](/screenshots/HomeScreen/hidden-vars.png)
-        ![location2](/screenshots/HomeScreen/hidden-vars2.png)
+        ![location](/Root/screenshots/HomeScreen/hidden-vars.png)
+        ![location2](/Root/screenshots/HomeScreen/hidden-vars2.png)
 
 
 </ul>
 
 <br>
 
-### **Botón Auto Evaluarme**
+### Botón Auto Evaluarme
 
 <ul>
 
@@ -187,12 +194,12 @@ Si el usuario está registrado en la base de datos `PerformanceReview` el botón
 
 </ul>
 
-### **Date Pickers Inicio y fin del periodo**
+### Date Pickers Inicio y fin del periodo
 
 
 <ul>
 
-![datepickers](/screenshots/HomeScreen/DatePickers.png)  
+![datepickers](/Root/screenshots/HomeScreen/DatePickers.png)  
 
 Los elementos seleccionados en el screenshot estarán habilitados únicamente si el PR no se ha iniciado, una vez este empiece, estos elementos cambiarán el valor de su propiedad `Visible`.
 
@@ -211,10 +218,10 @@ Ver: [Boton iniciar](#botón-de-iniciar)
 
 <br>
 
-### **Mensaje y texto de bienvenida**
+### Mensaje y texto de bienvenida
 <ul>
 
-![welcome-message](/screenshots/HomeScreen/welcome-text.png)
+![welcome-message](/Root/screenshots/HomeScreen/welcome-text.png)
 
 - Estos componentes se dividen en dos partes:
     
@@ -241,7 +248,7 @@ Ver: [Boton iniciar](#botón-de-iniciar)
         <ul>
         <li> 
         
-        ![backgroud-welcome](/screenshots/HomeScreen/backgroud-welcome.png)
+        ![backgroud-welcome](/Root/screenshots/HomeScreen/backgroud-welcome.png)
         
         Como se puede ver, la propiedad texto de este componente también es una concatenación. A continuación se provee el código fuente:
         ```powerapps
@@ -257,7 +264,27 @@ Ver: [Boton iniciar](#botón-de-iniciar)
 
 
 
-### **Componentes invisibles**
+### Componentes invisibles
+<ul>
+
+Algunos de los componentes en esta pantalla tienen su propiedad de visibilidad seteada a _False_.
+
+![invisible-components](/Root/screenshots/HomeScreen/Invi-hs.png)
+
+En este caso los componentes que se muestran seleccionados en la imagen se no aparecen para todos los colaboradores , solamente a aquellos usuarios que la condicional en su propiedad ***Visible*** sea ***true***:
+
+```powerfx
+CountRows(myReports) > 0
+```
+
+También podemos encontrar algunos componentes invisibles que son indispensables para el funcionamiento de la pantalla, estos componentes siempre tienen su propiedad _Visible_ seteada a *False*. En la siguiente imagen se muestra la localización de estos componentes.
+
+![invcomp2-hs](/Root/screenshots/HomeScreen/other-inv-hs.png)
+
+
+
+</ul>
+
 
 </ul>
 

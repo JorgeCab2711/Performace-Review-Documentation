@@ -46,5 +46,12 @@ La aplicación Performance Review se compone de las siguientes pantallas:
 9. **Resultados new:** Pantalla que muestra los resultados generales de las evaluaciones de desempeño.
 
 ___
+
+
+## Notas importantes:
+
+A lo largo de la documentación se menciona que se usaron botones como labels, para agregar texto y darle un style más amigable. Esto se hizo principalmente porque el componente _label_ no tiene todas las opciones de personalización que tienen los botones a la fecha de desarrollo de la aplicación **(Marzo-Mayo 2023)**.
+
+___
 ## Contacto de soporte
-Esta app fue desarrollada por Jorge Caballeros. Actualmente trabajando como practicante en Grupo sega a la fecha de la publicación de esta documentación.
+Esta app fue desarrollada por Jorge Caballeros. Actualmente trabajando como practicante en Grupo sega a la fecha de la publicación de esta documentación. Con cualquier duda, sugerencia, o reporte de errores porfavor comunicarse al correo jorgeca@gruposega.net . 
