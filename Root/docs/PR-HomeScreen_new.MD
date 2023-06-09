@@ -166,7 +166,8 @@ Si el usuario está registrado en la base de datos `PerformanceReview` el botón
 
         ![location](/Root/screenshots/HomeScreen/hidden-vars.png)
         ![location2](/Root/screenshots/HomeScreen/hidden-vars2.png)
-
+    
+    - _Setea_ la variable `fromSqlPR_ID` para tener su uso posterior en la pantalla a la que se está navegando una vez pulsado el botón. Aquí se obtiene del SQL el PR_ID del usuario en el periodo actual.
 
 </ul>
 
@@ -281,6 +282,41 @@ También podemos encontrar algunos componentes invisibles que son indispensables
 
 ![invcomp2-hs](/Root/screenshots/HomeScreen/other-inv-hs.png)
 
+
+Estas variables son :
+
+- `PR_ID_NEW` :
+    * Esta variable nos sirve para darle un nuevo PR_ID al usuario , genere un GUID cada vez que carga la aplicación.
+    Codigo del componente en la propiedad _Text_ a continuación:
+        ```
+        GUID()
+        ```
+
+<br>
+
+- `Periodo_Inicio_FromSQL`: 
+    * Esta variable obtiene el periodo inicial por medio del Correo del colaborador. El proximo snippet representa el valor de la propiedad _Text_ :
+        ```
+        LookUp(
+            PerformanceReview,
+            Colaboraor = User().Email,
+            Preiodo_Ev_Inicio
+        )
+        ```
+- `Periodo_Fin_FromSQL`:
+    * Esta variable obtiene el periodo final por medio del Correo del colaborador. El proximo snippet representa el valor de la propiedad _Text_ :
+        ```
+        LookUp(
+            PerformanceReview,
+            Colaboraor = User().Email,
+            Periodo_Ev_Fin
+        )
+        ```
+- `TL_NombreUsuario_8`:
+    * Esta variable simplemete contiene el nombre completo del usuario, a continuación se puede ver el valor de su propiedad _Text_
+        ```
+        User().FullName
+        ```
 
 
 </ul>
